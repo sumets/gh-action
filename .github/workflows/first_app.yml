@@ -9,6 +9,7 @@ jobs:
         - name: step2
           run: echo "Hi step2"
   two-job:
+    needs: first-job
     runs-on: ubuntu-latest
     steps:
       - name: 2_step1
