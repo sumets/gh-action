@@ -8,3 +8,10 @@ jobs:
           run: echo "Hi step1"
         - name: step2
           run: echo "Hi step2"
+  two-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 2_step1
+        run: |
+          echo "fist line"
+          echo "second line"
