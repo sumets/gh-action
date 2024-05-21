@@ -8,3 +8,6 @@ jobs:
         run: |
           sudo apt update
           sudo apt install python3
+      - name: run python
+        run: |
+          python3 --verson
