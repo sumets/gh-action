@@ -1,0 +1,10 @@
+name: Install Python Lib
+on: workflow_dispatch
+jobs:
+  install-python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install lib
+        run: |
+          sudo apt update
+          sudo apt install python3
