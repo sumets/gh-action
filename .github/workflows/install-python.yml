@@ -22,4 +22,9 @@ jobs:
           echo $GITHUB_WORKSPACE
           ls -l $GITHUB_WORKSPACE
       - name: run python script
-        run: python3 $GITHUB_WORKSPACE/print.py
+        run: python3 $GITHUB_WORKSPACE/print.pyxe
+      - name: test failure1
+        if: failure()
+        run: echo "Failure1"
+      - name: test failure2
+        run: echo "Failure2"
