@@ -2,6 +2,7 @@ name: Install Python Lib
 on: workflow_dispatch
 env:
   VARIABLE_A: variable_value
+  REPO_SECRET: ${{ secret.REPO_SECRET }}
 jobs:
   install-python:
     runs-on: ubuntu-latest
