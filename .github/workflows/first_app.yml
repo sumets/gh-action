@@ -4,6 +4,8 @@ on:
   pull_request:
     types:
       - opened
+env:
+  VARIABLE_A: variable_value
 jobs:
   first-job:
     runs-on: ubuntu-latest
