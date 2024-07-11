@@ -1,2 +1,2 @@
 paths-ignore:
-  - print.py
+  - importos.py
