@@ -19,8 +19,8 @@ jobs:
 
       - name: Push to destination repository
         run: |
-          git config --global user.email "your email"
-          git config --global user.name "your user name"
+          git config --global user.email "koh.sumet@gmail.com"
+          git config --global user.name "koh.sumet"
           git clone https://${{ env.ORG_NAME }}:${{ secrets.PAT }}@github.com/${{ env.ORG_NAME }}/test_git.git
           cd test_git
           git remote add ${{ env.ORIGINAL_REPO_NAME }} https://${{ env.ORG_NAME }}:${{ secrets.PAT }}@github.com/${{ env.ORG_NAME }}/${{ env.ORIGINAL_REPO_NAME }}.git
