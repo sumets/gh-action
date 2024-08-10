@@ -1,24 +1,9 @@
-name: First Workflow
-on: 
-  workflow_dispatch:
-  pull_request:
-    types:
-      - opened
-env:
-  VARIABLE_A: variable_value
+name: Run Job
+run-name : Run Job Name
+on: [push]
 jobs:
-  first-job:
+  job1:
     runs-on: ubuntu-latest
     steps:
-        - name: step1
-          run: echo "Hi step1"
-        - name: step2
-          run: echo "Hi step2"
-  two-job:
-    needs: first-job
-    runs-on: ubuntu-latest
-    steps:
-      - name: 2_step1
-        run: |
-          echo "fist line"
-          echo "second line"
+      - name: step1
+        run: echo "Hi"
