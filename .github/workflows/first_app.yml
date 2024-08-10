@@ -1,6 +1,6 @@
 name: Run Job
 run-name : Run Job Name
-on: [push]
+on: [push, workflow_dispatch]
 jobs:
   job1:
     runs-on: ubuntu-latest
