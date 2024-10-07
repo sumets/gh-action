@@ -1,19 +1,29 @@
 name: par1
 run-name: par1
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      TGT_ENV:
+        description: "(Optional) Specify the Databricks workflow to deploy (comma separate)"
+        required: false
+        default: "DEV"
+
+concurrency:
+  group: par1
+  cancel-in-progress: false
 jobs:
   job1:
     runs-on: ubuntu-latest
-    concurrency:
-      group: par1
-      cancel-in-progress: false
-    steps:
+    steps:  
       - name: step1
         run: |
           echo step1 start
           sleep 100
           echo step1 end
   job2:
+    concurrency:
+      group: ${{ inputs.TGT_ENV }}
+      cancel-in-progress: false
     needs: job1
     runs-on: ubuntu-latest
     steps:
