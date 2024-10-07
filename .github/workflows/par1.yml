@@ -14,6 +14,7 @@ jobs:
           sleep 100
           echo step1 end
   job2:
+    needs: job1
     runs-on: ubuntu-latest
     steps:
       - name: step2
