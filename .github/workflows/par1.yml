@@ -21,6 +21,7 @@ jobs:
           sleep 50
           echo step1 end "$(date)"
   job2:
+    needs: [job1]
     runs-on: ubuntu-latest
     steps:  
       - name: step2
@@ -32,7 +33,7 @@ jobs:
     concurrency:
       group: par1
       cancel-in-progress: false
-    needs: job1
+    needs: [job1,job2]
     runs-on: ubuntu-latest
     steps:
       - name: step2
