@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       TGT_ENV:
-        description: "(Optional) Specify the Databricks workflow to deploy (comma separate)"
+        description: "Environment"
         required: false
         default: "DEV"
 
 concurrency:
-  group: par1
+  group: ${{ inputs.TGT_ENV }}
   cancel-in-progress: false
 jobs:
   job1:
@@ -22,7 +22,7 @@ jobs:
           echo step1 end
   job2:
     concurrency:
-      group: ${{ inputs.TGT_ENV }}
+      group: par1
       cancel-in-progress: false
     needs: job1
     runs-on: ubuntu-latest
