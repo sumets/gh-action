@@ -7,5 +7,5 @@ jobs:
       - name: step1
         run: |
           echo step1 start
-          sleep 10
+          sleep 100
           echo step1 end
