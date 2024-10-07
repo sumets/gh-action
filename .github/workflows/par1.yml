@@ -13,6 +13,9 @@ concurrency:
   cancel-in-progress: false
 jobs:
   job1:
+    concurrency:
+      group: par1
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     steps:  
       - name: step1
@@ -21,6 +24,9 @@ jobs:
           sleep 50
           echo step1 end "$(date)"
   job2:
+    concurrency:
+      group: par1
+      cancel-in-progress: false
     needs: [job1]
     runs-on: ubuntu-latest
     steps:  
@@ -30,9 +36,6 @@ jobs:
           sleep 50
           echo step2 start "$(date)"
   job3:
-    concurrency:
-      group: par1
-      cancel-in-progress: false
     needs: [job1,job2]
     runs-on: ubuntu-latest
     steps:
