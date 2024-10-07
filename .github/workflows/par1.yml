@@ -17,10 +17,18 @@ jobs:
     steps:  
       - name: step1
         run: |
-          echo step1 start
-          sleep 10
-          echo step1 end
+          echo step1 start "$(date)"
+          sleep 50
+          echo step1 end "$(date)"
   job2:
+    runs-on: ubuntu-latest
+    steps:  
+      - name: step2
+        run: |
+          echo step2 start "$(date)"
+          sleep 50
+          echo step2 start "$(date)"
+  job3:
     concurrency:
       group: par1
       cancel-in-progress: false
@@ -29,6 +37,6 @@ jobs:
     steps:
       - name: step2
         run: |
-          echo step2 start
+          echo step3 start "$(date)"
           sleep 100
-          echo step2 end
+          echo step3 end "$(date)"
