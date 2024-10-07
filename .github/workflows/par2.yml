@@ -1,4 +1,5 @@
 name: par2
+run-name: par2
 on: workflow_dispatch
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
