@@ -2,10 +2,15 @@ name: Run Job
 run-name : Run Job Name
 on: [workflow_dispatch]
 env:
-  name: koh
+  name_global: koh-global-value
 jobs:
   job1:
+    env:
+      name_local: koh-local-value
     runs-on: ubuntu-latest
     steps:
       - name: step1
-        run: echo Hi $name
+        run: |
+          echo Hi $name_global
+          echo Hi $name_local
+  
