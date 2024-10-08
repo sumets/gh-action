@@ -10,12 +10,12 @@ jobs:
       - name: step1
         id: id_step1
         run: |
-          echox step1 start
+          echo step1 start
           sleep 12
           echo step1 end
       - name: step2
         id: id_step2
-        if: failure() && steps.id_step1.outcome == 'failure'
+        # if: failure() && steps.id_step1.outcome == 'failure'
         run: |
           echo step2 start
           sleep 1
