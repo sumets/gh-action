@@ -1,10 +1,10 @@
 name: Run Job
 run-name : Run Job Name
 on: [workflow_dispatch]
+env:
+  name: koh
 jobs:
   job1:
-    env:
-      name: koh
     runs-on: ubuntu-latest
     steps:
       - name: step1
