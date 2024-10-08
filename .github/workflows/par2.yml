@@ -20,7 +20,7 @@ jobs:
           echo step2 start
           sleep 1
           echo step2 end
-          echo "file_name=koh_file_name" >> $GITHUB
+          echo "file_name=koh_file_name" >> $GITHUB_OUTPUT
   job2:
     needs: job1
     runs-on: ubuntu-latest
