@@ -1,6 +1,6 @@
 name: par2
 run-name: par2
-on: workflow_dispatch
+on: [push, workflow_dispatch]
 jobs:
   job1:
     runs-on: ubuntu-latest
@@ -12,7 +12,7 @@ jobs:
           sleep 12
           echo step1 end
       - name: step2
-        if: failure() & id_step1 == 'failure'
+        if: failure() && id_step1 == 'failure'
         run: |
           echo step2 start
           sleep 1
