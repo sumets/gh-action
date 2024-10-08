@@ -1,15 +1,19 @@
 name: par2
 run-name: par2
 on: workflow_dispatch
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: false
 jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
       - name: step1
+        id: id_step1
         run: |
-          echo step1 start
-          sleep 100
+          echox step1 start
+          sleep 12
           echo step1 end
+      - name: step2
+        if: failure() & id_step1 == 'failure'
+        run: |
+          echo step2 start
+          sleep 1
+          echo step2 end
