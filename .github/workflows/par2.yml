@@ -8,7 +8,14 @@ on:
         description: choose color you like
         required: true
         default: No color
-    
+      sex:
+        description: sex - male or female
+        required: true
+        type: choice
+        options:
+          - male
+          - femal
+        default: male
 jobs:
   job1:
     runs-on: ubuntu-latest
