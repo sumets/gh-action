@@ -18,7 +18,7 @@ jobs:
       - name: step1
         id: id_step1
         run: |
-          echo ${{ INPUT_COLOR }}
+          echo ${{ github.event.inputs.color }}
       # - name: step2
       #   id: id_step2
       #   # if: failure() && steps.id_step1.outcome == 'failure'
