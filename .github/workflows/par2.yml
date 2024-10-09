@@ -1,33 +1,39 @@
 name: par2
 run-name: par2
-on: [push, workflow_dispatch]
+on: 
+  push: 
+  workflow_dispatch:
+    inputs:
+      color:
+        description: choose color you like
+        required: true
+        default: No color
+    
 jobs:
   job1:
     runs-on: ubuntu-latest
     outputs: 
       file_name: ${{ steps.id_step2.outputs.file_name }}
     steps:
-      # - name: step1
-      #   id: id_step1
+      - name: step1
+        id: id_step1
+        run: |
+          echo ${{ INPUT_COLOR }}
+      # - name: step2
+      #   id: id_step2
+      #   # if: failure() && steps.id_step1.outcome == 'failure'
       #   run: |
-      #     echo step1 start
-      #     sleep 12
-      #     echo step1 end
-      - name: step2
-        id: id_step2
-        # if: failure() && steps.id_step1.outcome == 'failure'
-        run: |
-          echo step2 start
-          sleep 1
-          echo step2 end
-          echo "file_name=koh_file_name" >> $GITHUB_OUTPUT
-      - name: step3
-        id: id_step3
-        run: |
-          echo file_name:${{ steps.id_step2.outputs.file_name }}
-  job2:
-    needs: job1
-    runs-on: ubuntu-latest
-    steps:
-      - name: step3
-        run: echo "file_name:${{ needs.job1.outputs.file_name }}"
+      #     echo step2 start
+      #     sleep 1
+      #     echo step2 end
+      #     echo "file_name=koh_file_name" >> $GITHUB_OUTPUT
+      # - name: step3
+      #   id: id_step3
+      #   run: |
+      #     echo file_name:${{ steps.id_step2.outputs.file_name }}
+  # job2:
+  #   needs: job1
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: step3
+  #       run: echo "file_name:${{ needs.job1.outputs.file_name }}"
