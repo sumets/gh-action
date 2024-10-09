@@ -1,7 +1,7 @@
 name: par2
 run-name: par2
 on: 
-  push: 
+  # push: 
   workflow_dispatch:
     inputs:
       color:
@@ -26,6 +26,7 @@ jobs:
         id: id_step1
         run: |
           echo "input:${{ github.event.inputs.color }}"
+          echo "sex:${{ github.event.inputs.sex }}"
       # - name: step2
       #   id: id_step2
       #   # if: failure() && steps.id_step1.outcome == 'failure'
