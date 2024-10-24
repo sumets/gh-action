@@ -13,6 +13,7 @@ jobs:
       - name: step1
         uses: actions/checkout@v4
         with: 
+          ref: feature1
           path: koh 
       - name: step2
         run: |
