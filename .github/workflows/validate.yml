@@ -1,1 +1,15 @@
-
+name: Validate-Deployment-Object
+on: 
+  workflow_dispatch:
+    inputs: 
+      validate_list_file:
+        description: Please enter validate file name
+        required: true
+        default: file1.txt
+jobs:
+  git-checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step1
+        uses: actions/checkout@v4
+        
