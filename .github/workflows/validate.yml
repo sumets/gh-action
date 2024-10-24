@@ -13,7 +13,7 @@ jobs:
       - name: step1
         uses: actions/checkout@v4
         with: 
-          path: $GITHUB_WORKSPACE/koh 
+          path: /koh 
       - name: step2
         run: |
           ls $GITHUB_WORKSPACE/koh
